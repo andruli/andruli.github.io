@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://andruli.github.io/atom.xml" rel="self"/>
   <link href="http://andruli.github.io/"/>
-  <updated>2014-04-20T12:35:45-03:00</updated>
+  <updated>2014-04-20T12:38:10-03:00</updated>
   <id>http://andruli.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Solving Bundle Install Problems Under Mac OSx]]></title>
+    <link href="http://andruli.github.io/blog/2014/04/20/solving-bundle-install-problems-under-mac-osx/"/>
+    <updated>2014-04-20T12:37:18-03:00</updated>
+    <id>http://andruli.github.io/blog/2014/04/20/solving-bundle-install-problems-under-mac-osx</id>
+    <content type="html"><![CDATA[<p>If you are a mac OSx user like me (I&rsquo;m on 10.9.2) you&rsquo;ll notice that you can&rsquo;t bundle any gems for ruby.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>bundle install
+</span><span class='line'>
+</span><span class='line'> Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+</span><span class='line'> ...
+</span><span class='line'> Make sure that <span class="sb">`</span>gem install RedCloth -v <span class="s1">&#39;4.2.9&#39;</span><span class="sb">`</span> succeeds before bundling.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>My first attempt was to simply follow the advice of the <code>bundle install</code> exit message, but the build keep crashing.
+After a lot of hours of web surfing I have finally found a solution.</p>
+
+<p>It seams that the defaul mac OSx compiler <code>cLang</code> is treating all warnings as error. To fix this we&rsquo;ll have to tell the compiler not to do this including the <code>CFLAG</code> -Wno-error=unused-command-line-argument-hard-error-in-future</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo <span class="nv">ARCHFLAGS</span><span class="o">=</span>-Wno-error<span class="o">=</span>unused-command-line-argument-hard-error-in-future bundle install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Et voilà, problem solved =D.</p>
+]]></content>
+  </entry>
   
 </feed>

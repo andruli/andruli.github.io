@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: OSx | My Octopress Blog]]></title>
+  <link href="http://andruli.github.io/blog/categories/osx/atom.xml" rel="self"/>
+  <link href="http://andruli.github.io/"/>
+  <updated>2014-04-20T12:38:10-03:00</updated>
+  <id>http://andruli.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Solving Bundle Install Problems Under Mac OSx]]></title>
+    <link href="http://andruli.github.io/blog/2014/04/20/solving-bundle-install-problems-under-mac-osx/"/>
+    <updated>2014-04-20T12:37:18-03:00</updated>
+    <id>http://andruli.github.io/blog/2014/04/20/solving-bundle-install-problems-under-mac-osx</id>
+    <content type="html"><![CDATA[<p>If you are a mac OSx user like me (I&rsquo;m on 10.9.2) you&rsquo;ll notice that you can&rsquo;t bundle any gems for ruby.</p>
+
+<p>``` bash
+$ bundle install</p>
+
+<p> Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+ &hellip;
+ Make sure that <code>gem install RedCloth -v '4.2.9'</code> succeeds before bundling.
+```</p>
+
+<p>My first attempt was to simply follow the advice of the <code>bundle install</code> exit message, but the build keep crashing.
+After a lot of hours of web surfing I have finally found a solution.</p>
+
+<p>It seams that the defaul mac OSx compiler <code>cLang</code> is treating all warnings as error. To fix this we&rsquo;ll have to tell the compiler not to do this including the <code>CFLAG</code> -Wno-error=unused-command-line-argument-hard-error-in-future</p>
+
+<p><code>bash
+$ sudo ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future bundle install
+</code></p>
+
+<p>Et voilà, problem solved =D.</p>
+]]></content>
+  </entry>
+  
+</feed>
