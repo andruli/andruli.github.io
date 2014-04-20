@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ruby | My Octopress Blog]]></title>
+  <title><![CDATA[Category: Ruby | andruli's blog]]></title>
   <link href="http://andruli.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://andruli.github.io/"/>
-  <updated>2014-04-20T12:58:22-03:00</updated>
+  <updated>2014-04-20T14:40:39-03:00</updated>
   <id>http://andruli.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
-    
+    <name><![CDATA[Andrés Bordese]]></name>
+    <email><![CDATA[andresb9163@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 

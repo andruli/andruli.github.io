@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: OSx | My Octopress Blog]]></title>
+  <title><![CDATA[Category: OSx | andruli's blog]]></title>
   <link href="http://andruli.github.io/blog/categories/osx/atom.xml" rel="self"/>
   <link href="http://andruli.github.io/"/>
-  <updated>2014-04-20T12:58:22-03:00</updated>
+  <updated>2014-04-20T14:40:39-03:00</updated>
   <id>http://andruli.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
-    
+    <name><![CDATA[Andrés Bordese]]></name>
+    <email><![CDATA[andresb9163@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Launch Sublime 3 From the Command Line]]></title>
+    <link href="http://andruli.github.io/blog/2014/04/20/launch-sublime-3-from-the-command-line/"/>
+    <updated>2014-04-20T14:19:26-03:00</updated>
+    <id>http://andruli.github.io/blog/2014/04/20/launch-sublime-3-from-the-command-line</id>
+    <content type="html"><![CDATA[<p>Under a GNU/Linux enviroment like <a href="www.ubuntu.com">Ubuntu</a> when you install sublime 2/3 you&rsquo;ll also get a command line utility to launch the program. Sadly in OSx we don&rsquo;t have it, but it is quiet easy to get that feature to work, just type on a terminal:</p>
+
+<p><code>bash
+ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+</code></p>
+
+<p>Et voilà, now you can launch sublime from the terminal just typing <code>subl</code>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Solving Bundle Install Problems Under Mac OSx]]></title>
