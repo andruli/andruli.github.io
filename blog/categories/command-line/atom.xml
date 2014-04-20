@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Command Line | andruli's blog]]></title>
   <link href="http://andruli.github.io/blog/categories/command-line/atom.xml" rel="self"/>
   <link href="http://andruli.github.io/"/>
-  <updated>2014-04-20T15:07:42-03:00</updated>
+  <updated>2014-04-20T15:43:43-03:00</updated>
   <id>http://andruli.github.io/</id>
   <author>
     <name><![CDATA[Andrés Bordese]]></name>
@@ -18,7 +18,7 @@
     <link href="http://andruli.github.io/blog/2014/04/20/launch-sublime-3-from-the-command-line/"/>
     <updated>2014-04-20T14:19:26-03:00</updated>
     <id>http://andruli.github.io/blog/2014/04/20/launch-sublime-3-from-the-command-line</id>
-    <content type="html"><![CDATA[<p>Under a GNU/Linux enviroment like <a href="www.ubuntu.com">Ubuntu</a> when you install sublime 2/3 you&rsquo;ll also get a command line utility to launch the program. Sadly in OSx we don&rsquo;t have it, but it is quiet easy to get that feature to work, just type on a terminal:</p>
+    <content type="html"><![CDATA[<p>Under a GNU/Linux enviroment like <a href="http://www.ubuntu.com">Ubuntu</a> when you install sublime 2/3 you&rsquo;ll also get a command line utility to launch the program. Sadly in OSx we don&rsquo;t have it, but it is quiet easy to get that feature to work, just type on a terminal:</p>
 
 <p><code>bash
 ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
