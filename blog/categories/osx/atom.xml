@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OSx | andruli's blog]]></title>
   <link href="http://andruli.github.io/blog/categories/osx/atom.xml" rel="self"/>
   <link href="http://andruli.github.io/"/>
-  <updated>2014-04-20T17:44:27-03:00</updated>
+  <updated>2014-04-21T10:33:29-03:00</updated>
   <id>http://andruli.github.io/</id>
   <author>
     <name><![CDATA[Andrés Bordese]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>Under a GNU/Linux enviroment like <a href="http://www.ubuntu.com">Ubuntu</a> when you install sublime 2/3 you&rsquo;ll also get a command line utility to launch the program. Sadly in OSx we don&rsquo;t have it, but it is quiet easy to get that feature to work, just type on a terminal:</p>
 
 <p><code>bash
-ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+$ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 </code></p>
 
 <p>Et voilà, now you can launch sublime from the terminal just typing <code>subl</code>.</p>
