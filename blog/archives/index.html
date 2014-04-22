@@ -9,8 +9,9 @@
   <meta name="author" content="Andrés Bordese">
 
   
-  <meta name="description" content="Blog Archive 2014 Launch Sublime 3 From the Command Line
-Apr 20 2014 posted in OSx, command line, sublime text Solving Bundle Install Problems Under &hellip;">
+  <meta name="description" content="Blog Archive 2014 Fancybox Images and Octopress
+Apr 22 2014 posted in fancybox, images, octopress Launch Sublime 3 From the Command Line
+Apr 20 2014 &hellip;">
   
 
   <img id="portrait" src="/profile.jpg" alt="portrait" />
@@ -34,6 +35,39 @@ Apr 20 2014 posted in OSx, command line, sublime text Solving Bundle Install Pro
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- Load jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery.noConflict(); // ender.js conflicts with jQuery
+</script>
+
+<!-- Load FancyBox -->
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" />
+<script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+<!-- Fix FancyBox style for OctoPress -->
+<style type="text/css">
+  .fancybox-wrap { position: fixed !important; }
+  .fancybox-opened {
+    -webkit-border-radius: 4px !important;
+       -moz-border-radius: 4px !important;
+            border-radius: 4px !important;
+  }
+  .fancybox-close, .fancybox-prev span, .fancybox-next span {
+    background-color: transparent !important;
+    border: 0 !important;
+  }
+</style>
+
+
+<!-- Custom Scripts -->
+<script language="Javascript" type="text/javascript">
+    // ender.js gobbles jQuery's ready event: Use ender.js $ instead
+    $(document).ready(function() {
+        jQuery(".fancybox").fancybox();
+    });
+</script>
 
   
   <script type="text/javascript">
@@ -97,6 +131,20 @@ Apr 20 2014 posted in OSx, command line, sublime text Solving Bundle Install Pro
 
 <article>
   
+<h1><a href="/blog/2014/04/22/fancybox-images-and-octopress/">Fancybox Images and Octopress</a></h1>
+<time datetime="2014-04-22T15:28:51-03:00" pubdate><span class='month'>Apr</span> <span class='day'>22</span> <span class='year'>2014</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/fancybox/'>fancybox</a>, <a class='category' href='/blog/categories/images/'>images</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
+</footer>
+
+
+</article>
+
+
+
+<article>
+  
 <h1><a href="/blog/2014/04/20/launch-sublime-3-from-the-command-line/">Launch Sublime 3 From the Command Line</a></h1>
 <time datetime="2014-04-20T14:19:26-03:00" pubdate><span class='month'>Apr</span> <span class='day'>20</span> <span class='year'>2014</span></time>
 
@@ -133,6 +181,10 @@ Apr 20 2014 posted in OSx, command line, sublime text Solving Bundle Install Pro
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/22/fancybox-images-and-octopress/">Fancybox Images and Octopress</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/20/launch-sublime-3-from-the-command-line/">Launch Sublime 3 From the Command Line</a>

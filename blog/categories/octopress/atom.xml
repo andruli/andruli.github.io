@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | andruli's blog]]></title>
+  <link href="http://andruli.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://andruli.github.io/"/>
+  <updated>2014-04-22T18:13:22-03:00</updated>
+  <id>http://andruli.github.io/</id>
+  <author>
+    <name><![CDATA[Andrés Bordese]]></name>
+    <email><![CDATA[andresb9163@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fancybox Images and Octopress]]></title>
+    <link href="http://andruli.github.io/blog/2014/04/22/fancybox-images-and-octopress/"/>
+    <updated>2014-04-22T15:28:51-03:00</updated>
+    <id>http://andruli.github.io/blog/2014/04/22/fancybox-images-and-octopress</id>
+    <content type="html"><![CDATA[<p>FancyBox images are one of the coolest ways of displayng images on your web site, and it is easy to add FancyBox support for your octopress blog.</p>
+
+<ul>
+<li><p>Download <a href="http://fancyapps.com/fancybox/#license">fancybox</a>.</p></li>
+<li><p>Uncompress the zip, and copy the content of <code>fancybox/source</code> to <code>$OCTOPRESS_PATH/source/fancybox</code>.</p></li>
+<li><p>Create a new file <code>$OCTOPRESS_PATH/source/_include/custom/fancybox_head.html</code> and paste the next code.
+``` html
+<link rel="stylesheet" href="http://andruli.github.io/fancybox/jquery.fancybox.css" type="text/css" media="screen" /></p></li>
+</ul>
+
+
+<script type="text/javascript" src="http://andruli.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el,
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+
+<p>```</p>
+
+<ul>
+<li>Finally, in the file <code>$OCTOPRESS_PATH/source/_includes/head.html</code>, add the following line. This line should be after loading jQuery, but before custom/head.html.</li>
+</ul>
+
+
+<p><code>html
+{\% include custom/fancybox_head.html \%}
+</code>
+<ul class="gallery">
+<li><a href="/images/posts/fancybox/profile.jpg" class="fancybox" rel="gallery-f581f3cd2a4fad49fd69893747244870" title=""><img src="/images/posts/fancybox/profile_m.jpg" alt="" /></a></li><li><a href="/images/posts/fancybox/favicon.png" class="fancybox" rel="gallery-f581f3cd2a4fad49fd69893747244870" title=""><img src="/images/posts/fancybox/favicon_m.png" alt="" /></a></li>
+</ul></p>
+]]></content>
+  </entry>
+  
+</feed>

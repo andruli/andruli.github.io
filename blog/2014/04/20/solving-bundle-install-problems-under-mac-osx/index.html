@@ -39,6 +39,39 @@ $ bundle install &hellip;">
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
+<!-- Load jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery.noConflict(); // ender.js conflicts with jQuery
+</script>
+
+<!-- Load FancyBox -->
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" />
+<script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+<!-- Fix FancyBox style for OctoPress -->
+<style type="text/css">
+  .fancybox-wrap { position: fixed !important; }
+  .fancybox-opened {
+    -webkit-border-radius: 4px !important;
+       -moz-border-radius: 4px !important;
+            border-radius: 4px !important;
+  }
+  .fancybox-close, .fancybox-prev span, .fancybox-next span {
+    background-color: transparent !important;
+    border: 0 !important;
+  }
+</style>
+
+
+<!-- Custom Scripts -->
+<script language="Javascript" type="text/javascript">
+    // ender.js gobbles jQuery's ready event: Use ender.js $ instead
+    $(document).ready(function() {
+        jQuery(".fancybox").fancybox();
+    });
+</script>
+
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -210,6 +243,10 @@ After a lot of hours of web surfing I have finally found a solution.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/22/fancybox-images-and-octopress/">Fancybox Images and Octopress</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/20/launch-sublime-3-from-the-command-line/">Launch Sublime 3 From the Command Line</a>
