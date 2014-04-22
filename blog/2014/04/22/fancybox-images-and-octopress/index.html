@@ -9,7 +9,7 @@
   <meta name="author" content="Andrés Bordese">
 
   
-  <meta name="description" content="FancyBox images are one of the coolest ways of displayng images on your web site, and it is easy to add FancyBox support for your octopress blog. &hellip;">
+  <meta name="description" content="FancyBox images are one of the coolest ways of displayng images on your web site, and it is easy to add FancyBox support for your octopress blog. We& &hellip;">
   
 
   <img id="portrait" src="/profile.jpg" alt="portrait" />
@@ -145,10 +145,30 @@
 
 <div class="entry-content"><p>FancyBox images are one of the coolest ways of displayng images on your web site, and it is easy to add FancyBox support for your octopress blog.</p>
 
+<p>We&rsquo;ll use a modified version of <a href="https://gist.github.com/sukima">sikima&rsquo;s</a> fancybox plugin.</p>
+
+<h1>Installing fancybox plugin</h1>
+
 <ul>
 <li><p>Download <a href="http://fancyapps.com/fancybox/#license">fancybox</a>.</p></li>
-<li><p>Uncompress the zip, and copy the content of <code>fancybox/source</code> to <code>$OCTOPRESS_PATH/source/fancybox</code>.</p></li>
-<li><p>Create a new file <code>$OCTOPRESS_PATH/source/_include/custom/fancybox_head.html</code> and paste the next code.</p></li>
+<li><p>Copy the content of <code>path/to/fancybox/source</code> to <code>$OCTOPRESS_PATH/source/fancybox</code>.</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>cp -R fancybox/source /path/to/octopress/source/fancybox
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Copy <a href="/resources/photos_tag.rb">this</a> modified version of <a href="https://gist.github.com/sukima">sikima&rsquo;s</a> fancybox plugin to you <code>path/to/octopress/plugins/</code> folder.</li>
+</ul>
+
+
+<p>There are a few styling mistakes that fancybox has when it is runing inside octopress. To fix this the plugin provides the fancyboxstylefix tag.</p>
+
+<ul>
+<li>Add the following code to you <code>path/to/octopress/source/_includes/custom/head.html</code></li>
 </ul>
 
 
@@ -171,70 +191,64 @@
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/fancybox/jquery.fancybox.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/fancybox/jquery.fancybox.pack.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="c">&lt;!-- Load jQuery --&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span> <span class="c1">// ender.js conflicts with jQuery</span>
+</span><span class='line'><span class="nt">&lt;/script&gt;</span>
 </span><span class='line'>
+</span><span class='line'><span class="c">&lt;!-- Load FancyBox --&gt;</span>
+</span><span class='line'><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;/fancybox/jquery.fancybox.css&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/fancybox/jquery.fancybox.pack.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>
+</span><span class='line'>{% fancyboxstylefix %}
+</span><span class='line'>
+</span><span class='line'><span class="c">&lt;!-- Custom Scripts --&gt;</span>
 </span><span class='line'><span class="nt">&lt;script </span><span class="na">language=</span><span class="s">&quot;Javascript&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span>
-</span><span class='line'>  <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.fancybox[data-content-id]&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;content-id&#39;</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">});</span>
-</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.fancybox&quot;</span><span class="p">).</span><span class="nx">fancybox</span><span class="p">({</span>
-</span><span class='line'>        <span class="nx">beforeLoad</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">el</span><span class="p">,</span>
-</span><span class='line'>              <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;title-id&#39;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nx">el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>              <span class="k">this</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">html</span><span class="p">();</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>          <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>            <span class="k">this</span><span class="p">.</span><span class="nx">content</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">);</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="nx">helpers</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>          <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;inside&#39;</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>      <span class="p">});</span>
-</span><span class='line'>    <span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">);</span>
+</span><span class='line'>    <span class="c1">// ender.js gobbles jQuery&#39;s ready event: Use ender.js $ instead</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">jQuery</span><span class="p">(</span><span class="s2">&quot;.fancybox&quot;</span><span class="p">).</span><span class="nx">fancybox</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">});</span>
 </span><span class='line'><span class="nt">&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
-<li>Finally, in the file <code>$OCTOPRESS_PATH/source/_includes/head.html</code>, add the following line. This line should be after loading jQuery, but before custom/head.html.</li>
+<li>Fix the css by appending the following to your <code>path/to/octopress/sass/custom/_styles.scss</code></li>
 </ul>
 
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>{\% include custom/fancybox_head.html \%}
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>/* FancyBox Galleries */
+</span><span class='line'>$rad: 6px;
+</span><span class='line'>ul.gallery {
+</span><span class='line'>  border: thin solid gray;
+</span><span class='line'>  -webkit-border-radius: $rad;
+</span><span class='line'>  -moz-border-radius: $rad;
+</span><span class='line'>  border-radius: $rad;
+</span><span class='line'>  text-align: center;
+</span><span class='line'>  padding: 5px;
+</span><span class='line'>  li {
+</span><span class='line'>    display: inline;
+</span><span class='line'>    padding: 5px;
+</span><span class='line'>  }
+</span><span class='line'>}
 </span></code></pre></td></tr></table></div></figure>
+
+
 
 
 <ul class="gallery">
